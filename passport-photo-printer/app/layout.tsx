@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: "Passport Photo Printer",
   description: "Print passport sized photos on A4 paper",
   manifest: "/manifest.json",
-  themeColor: "#0f172a",
   icons: {
     icon: [
       { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
@@ -27,7 +26,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Optional but good for mobile and PWA */}
         <meta name="theme-color" content="#0f172a" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icons/icon-512x512.png" />
