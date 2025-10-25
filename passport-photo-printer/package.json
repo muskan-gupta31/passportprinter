@@ -17,6 +17,7 @@
     "react-rnd": "^10.5.2"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.14.3",
     "@tailwindcss/postcss": "^4",
     "@types/next-pwa": "^5.6.9",
     "@types/node": "^20",
