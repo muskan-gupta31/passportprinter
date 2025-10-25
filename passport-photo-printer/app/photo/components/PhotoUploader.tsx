@@ -1,3 +1,4 @@
+// passport-photo-printer/app/photo/components/PhotoUploader.tsx
 'use client';
 
 import React from 'react';

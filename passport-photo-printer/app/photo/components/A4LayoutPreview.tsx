@@ -3,63 +3,63 @@
 import React from 'react';
 import { usePhoto } from '@/context/photoeditor';
 
-export default function A4LayoutPreview() {
-  const { uploadedImage, photoCount, borderColor } = usePhoto();
+// New size for 6-across on A4
+const PHOTO_WIDTH_MM = 33; 
+const PHOTO_HEIGHT_MM = 42.4; 
+const PHOTO_GAP_MM = 2;
+const COLUMNS = 6;
 
-  if (!uploadedImage) return null;
+export default function PhotoPreview() {
+  const { uploadedImage, borderColor, photoCount } = usePhoto();
+  
+  // Screen sizing (1mm ≈ 4px for rough preview)
+  const previewWidthPx = PHOTO_WIDTH_MM * 4;
+  const previewHeightPx = PHOTO_HEIGHT_MM * 4;
+  const previewGapPx = PHOTO_GAP_MM * 4;
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">
-        A4 Layout Preview
-      </h3>
-      <div
-        className="bg-gray-50 p-8 rounded-lg mx-auto"
-        style={{
-          width: '210mm',
-          minHeight: '297mm',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '10mm',
-            maxWidth: '170mm',
-          }}
-        >
-          {Array(photoCount)
-            .fill(null)
-            .map((_, index) => (
-              <div
-                key={index}
-                style={{
-                  width: '35mm',
-                  height: '45mm',
-                  border: `2px solid ${borderColor}`,
-                  overflow: 'hidden',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: 'white',
-                }}
-              >
-                <img
-                  src={uploadedImage}
-                  alt={`Photo ${index + 1}`}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
+    <div className="bg-gray-50 rounded-xl p-6">
+      <h3 className="text-lg font-semibold text-gray-800 mb-4">Preview</h3>
+      {uploadedImage ? (
+        <div className="bg-white p-4 rounded-lg shadow-inner overflow-auto">
+          <div
+            className="grid"
+            style={{
+              gridTemplateColumns: `repeat(${COLUMNS}, ${previewWidthPx}px)`,
+              gap: `${previewGapPx}px`,
+            }}
+          >
+            {Array(photoCount)
+              .fill(null)
+              .map((_, index) => (
+                <div
+                  key={index}
+                  className="overflow-hidden bg-white"
+                  style={{ 
+                    width: `${previewWidthPx}px`,
+                    height: `${previewHeightPx}px`,
+                    border: `3px solid ${borderColor}` 
                   }}
-                />
-              </div>
-            ))}
+                >
+                  <img
+                    src={uploadedImage}
+                    alt={`Passport Photo ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+          </div>
+          <p className="text-center text-sm text-gray-600 mt-4">
+            <strong>Actual Print Size:</strong> {PHOTO_WIDTH_MM.toFixed(1)}mm × {PHOTO_HEIGHT_MM.toFixed(1)}mm 
+            <br />
+            ({photoCount} photos in 6-column layout)
+          </p>
         </div>
-      </div>
+      ) : (
+        <div className="flex items-center justify-center h-64 bg-gray-100 rounded-lg">
+          <p className="text-gray-400">Upload a photo to see preview</p>
+        </div>
+      )}
     </div>
   );
 }

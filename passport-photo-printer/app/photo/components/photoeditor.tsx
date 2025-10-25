@@ -1,3 +1,4 @@
+// passport-photo-printer/app/photo/components/photoeditor.tsx
 'use client';
 
 import React from 'react';
@@ -27,7 +28,7 @@ export default function PhotoEditor() {
             </div>
 
             {/* Right Panel - Preview */}
-            <PhotoPreview />
+            {/* <PhotoPreview /> */}
           </div>
         </div>
 
