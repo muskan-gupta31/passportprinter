@@ -1,3 +1,4 @@
+// passport-photo-printer/context/photoeditor.tsx
 'use client';
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
@@ -9,12 +10,15 @@ interface PhotoContextType {
   setPhotoCount: (count: number) => void;
   borderColor: string;
   setBorderColor: (color: string) => void;
+  originalImage: string | null;
+  setOriginalImage: (image: string | null) => void;
 }
 
 const PhotoContext = createContext<PhotoContextType | undefined>(undefined);
 
 export function PhotoProvider({ children }: { children: ReactNode }) {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [originalImage, setOriginalImage] = useState<string | null>(null);
   const [photoCount, setPhotoCount] = useState<number>(4);
   const [borderColor, setBorderColor] = useState<string>('#000000');
 
@@ -27,6 +31,8 @@ export function PhotoProvider({ children }: { children: ReactNode }) {
         setPhotoCount,
         borderColor,
         setBorderColor,
+        originalImage,
+        setOriginalImage,
       }}
     >
       {children}

@@ -1,5 +1,6 @@
+// passport-photo-printer/app/page.tsx
 import Link from 'next/link';
-import { Camera, Printer, Image } from 'lucide-react';
+import { Camera, Printer, Image, Wand2 } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -22,30 +23,28 @@ export default function Home() {
               <Image className="w-12 h-12 text-indigo-600 mb-3" />
               <h3 className="font-semibold text-lg mb-2">Upload Photo</h3>
               <p className="text-gray-600">
-                Upload any photo and we'll format it to passport size (35mm × 45mm)
+                Upload any photo and format it to passport size (33mm × 42.4mm)
               </p>
             </div>
             <div className="p-4">
-              <div className="w-12 h-12 text-indigo-600 mb-3 flex items-center justify-center text-2xl font-bold border-2 border-indigo-600 rounded">
-                4
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Choose Quantity</h3>
+              <Wand2 className="w-12 h-12 text-indigo-600 mb-3" />
+              <h3 className="font-semibold text-lg mb-2">Remove Background</h3>
               <p className="text-gray-600">
-                Select 1-8 photos to print on a single A4 sheet
+                Optional AI background removal with clean white background
               </p>
             </div>
             <div className="p-4">
               <Printer className="w-12 h-12 text-indigo-600 mb-3" />
               <h3 className="font-semibold text-lg mb-2">Print or Download</h3>
               <p className="text-gray-600">
-                Print directly or download as PNG for later use
+                Print directly on A4 paper (6 photos per sheet)
               </p>
             </div>
           </div>
         </div>
 
         <Link
-          href="/photo"
+          href="/photo/upload"
           className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white text-lg font-semibold rounded-lg hover:bg-indigo-700 transition-all shadow-lg hover:shadow-xl"
         >
           <Camera className="w-6 h-6" />
@@ -53,9 +52,10 @@ export default function Home() {
         </Link>
 
         <div className="mt-8 text-sm text-gray-600">
-          <p>✓ Standard passport size (35mm × 45mm)</p>
-          <p>✓ A4 paper format (210mm × 297mm)</p>
+          <p>✓ Standard passport size (33mm × 42.4mm)</p>
+          <p>✓ A4 paper format (6 photos per sheet)</p>
           <p>✓ Custom border colors</p>
+          <p>✓ Optional background removal</p>
         </div>
       </div>
     </div>

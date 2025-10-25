@@ -1,3 +1,4 @@
+// passport-photo-printer/app/photo/components/A4LayoutPreview.tsx
 'use client';
 
 import React from 'react';

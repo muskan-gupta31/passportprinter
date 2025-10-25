@@ -1,13 +1,13 @@
+// passport-photo-printer/app/photo/components/PrintDownloadButtons.tsx
 'use client';
 
 import React from 'react';
 import { Printer } from 'lucide-react';
 import { usePhoto } from '@/context/photoeditor';
 
-// Layout Constants - 6 columns on A4
-const PHOTO_WIDTH_MM = 33; 
-const PHOTO_HEIGHT_MM = 42.4; 
-const PHOTO_GAP_MM = 2; 
+const PHOTO_WIDTH_MM = 33;
+const PHOTO_HEIGHT_MM = 42.4;
+const PHOTO_GAP_MM = 2;
 const COLUMNS = 6;
 
 export default function PrintDownloadButtons() {

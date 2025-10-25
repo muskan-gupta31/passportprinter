@@ -1,18 +1,17 @@
+// passport-photo-printer/app/photo/components/PhotoPreview.tsx
 'use client';
 
 import React from 'react';
 import { usePhoto } from '@/context/photoeditor';
 
-// New size for 6-across on A4
-const PHOTO_WIDTH_MM = 33; 
-const PHOTO_HEIGHT_MM = 42.4; 
+const PHOTO_WIDTH_MM = 33;
+const PHOTO_HEIGHT_MM = 42.4;
 const PHOTO_GAP_MM = 2;
 const COLUMNS = 6;
 
 export default function PhotoPreview() {
   const { uploadedImage, borderColor, photoCount } = usePhoto();
-  
-  // Screen sizing (1mm ≈ 4px for rough preview)
+
   const previewWidthPx = PHOTO_WIDTH_MM * 4;
   const previewHeightPx = PHOTO_HEIGHT_MM * 4;
   const previewGapPx = PHOTO_GAP_MM * 4;
@@ -27,7 +26,7 @@ export default function PhotoPreview() {
             style={{
               gridTemplateColumns: `repeat(${COLUMNS}, ${previewWidthPx}px)`,
               gap: `${previewGapPx}px`,
-              width: 'fit-content'
+              width: 'fit-content',
             }}
           >
             {Array(photoCount)
@@ -36,10 +35,10 @@ export default function PhotoPreview() {
                 <div
                   key={index}
                   className="overflow-hidden"
-                  style={{ 
+                  style={{
                     width: `${previewWidthPx}px`,
                     height: `${previewHeightPx}px`,
-                    border: `3px solid ${borderColor}` 
+                    border: `3px solid ${borderColor}`,
                   }}
                 >
                   <img
@@ -51,9 +50,9 @@ export default function PhotoPreview() {
               ))}
           </div>
           <p className="text-center text-sm text-gray-600 mt-4">
-            <strong>Actual Print Size:</strong> {PHOTO_WIDTH_MM.toFixed(1)}mm × {PHOTO_HEIGHT_MM.toFixed(1)}mm 
-            <br />
-            ({photoCount} photos in 6-column layout)
+            <strong>Actual Print Size:</strong> {PHOTO_WIDTH_MM.toFixed(1)}mm ×{' '}
+            {PHOTO_HEIGHT_MM.toFixed(1)}mm
+            <br />({photoCount} photos in 6-column layout)
           </p>
         </div>
       ) : (
