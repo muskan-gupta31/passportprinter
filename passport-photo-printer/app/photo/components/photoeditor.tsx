@@ -14,7 +14,7 @@ export default function PhotoEditor() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8 text-indigo-900">
-          Passport Photo Printer
+          assport Photo Printer
         </h1>
 
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
