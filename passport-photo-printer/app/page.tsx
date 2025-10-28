@@ -1,61 +1,67 @@
-// passport-photo-printer/app/page.tsx
+// app/page.tsx
 import Link from 'next/link';
-import { Camera, Printer, Image, Wand2 } from 'lucide-react';
+import { Camera, Sparkles, Settings, Info } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-8">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="mb-8">
-          <Camera className="w-24 h-24 text-indigo-600 mx-auto mb-4" />
-          <h1 className="text-5xl font-bold text-indigo-900 mb-4">
-            Passport Photo Printer
-          </h1>
-          <p className="text-xl text-gray-700 mb-8">
-            Create professional passport photos ready for printing on A4 paper
-          </p>
+    <div className="min-h-screen bg-gradient-to-b from-indigo-600 to-indigo-800 text-white">
+      {/* Header */}
+      <div className="pt-12 pb-8 px-6 text-center">
+        <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <Camera className="w-12 h-12 text-indigo-600" />
         </div>
+        <h1 className="text-3xl font-bold mb-2">Passport Photos</h1>
+        <p className="text-indigo-200 text-sm">Quick & Professional</p>
+      </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Features</h2>
-          <div className="grid md:grid-cols-3 gap-6 text-left">
-            <div className="p-4">
-              <Image className="w-12 h-12 text-indigo-600 mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Upload Photo</h3>
-              <p className="text-gray-600">
-                Upload any photo and format it to passport size (33mm × 42.4mm)
-              </p>
-            </div>
-            <div className="p-4">
-              <Wand2 className="w-12 h-12 text-indigo-600 mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Remove Background</h3>
-              <p className="text-gray-600">
-                Optional AI background removal with clean white background
-              </p>
-            </div>
-            <div className="p-4">
-              <Printer className="w-12 h-12 text-indigo-600 mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Print or Download</h3>
-              <p className="text-gray-600">
-                Print directly on A4 paper (6 photos per sheet)
-              </p>
-            </div>
-          </div>
-        </div>
-
+      {/* Main Action Card */}
+      <div className="px-6 pb-8">
         <Link
           href="/photo/upload"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white text-lg font-semibold rounded-lg hover:bg-indigo-700 transition-all shadow-lg hover:shadow-xl"
+          className="block bg-white rounded-3xl p-8 shadow-2xl text-center hover:scale-105 transition-transform active:scale-95"
         >
-          <Camera className="w-6 h-6" />
-          Start Creating Photos
+          <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Camera className="w-14 h-14 text-white" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Take Photo</h2>
+          <p className="text-gray-600 mb-4">Start creating your passport photos</p>
+          <div className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full font-semibold">
+            Get Started →
+          </div>
         </Link>
+      </div>
 
-        <div className="mt-8 text-sm text-gray-600">
-          <p>✓ Standard passport size (33mm × 42.4mm)</p>
-          <p>✓ A4 paper format (6 photos per sheet)</p>
-          <p>✓ Custom border colors</p>
-          <p>✓ Optional background removal</p>
+      {/* Feature Grid */}
+      <div className="px-6 pb-12">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+            <Sparkles className="w-10 h-10 mx-auto mb-3 text-yellow-300" />
+            <h3 className="font-semibold mb-1">AI Background</h3>
+            <p className="text-xs text-indigo-200">Auto remove</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+            <Settings className="w-10 h-10 mx-auto mb-3 text-green-300" />
+            <h3 className="font-semibold mb-1">Customize</h3>
+            <p className="text-xs text-indigo-200">Border & size</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Info Section */}
+      <div className="px-6 pb-12">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+          <div className="flex items-start gap-3 mb-4">
+            <Info className="w-5 h-5 text-indigo-200 flex-shrink-0 mt-0.5" />
+            <div>
+              <h3 className="font-semibold mb-2">Standard Size</h3>
+              <p className="text-sm text-indigo-200">33mm × 42.4mm passport format</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2 text-xs">
+            <span className="bg-white/20 px-3 py-1 rounded-full">6 photos/sheet</span>
+            <span className="bg-white/20 px-3 py-1 rounded-full">A4 paper</span>
+            <span className="bg-white/20 px-3 py-1 rounded-full">High quality</span>
+          </div>
         </div>
       </div>
     </div>
