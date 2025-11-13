@@ -41,10 +41,12 @@ export default function PhotoEditorPage() {
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { background: white; }
             .print-container {
-              display: grid;
-              grid-template-columns: repeat(${COLUMNS}, ${PHOTO_WIDTH_MM}mm);
-              gap: ${PHOTO_GAP_MM}mm;
-            }
+  display: grid;
+  grid-template-columns: repeat(${COLUMNS}, ${PHOTO_WIDTH_MM}mm);
+  gap: ${PHOTO_GAP_MM}mm;
+  padding-top: 3mm;    /* ✅ Added top margin */
+  padding-left: 0mm;     /* ✅ Added left margin for better centering */
+}
             .photo-wrapper {
               width: ${PHOTO_WIDTH_MM}mm;
               height: ${PHOTO_HEIGHT_MM}mm;
@@ -144,11 +146,10 @@ export default function PhotoEditorPage() {
                       setPhotoCount(count);
                       setShowCountPicker(false);
                     }}
-                    className={`p-3 rounded-xl font-semibold transition-all ${
-                      photoCount === count
-                        ? 'bg-indigo-600 text-white'
-                        : 'bg-gray-100 text-gray-700'
-                    }`}
+                    className={`p-3 rounded-xl font-semibold transition-all ${photoCount === count
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-gray-100 text-gray-700'
+                      }`}
                   >
                     {count}
                   </button>

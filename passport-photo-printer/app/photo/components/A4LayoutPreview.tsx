@@ -4,7 +4,7 @@
 import React from 'react';
 import { usePhoto } from '@/context/photoeditor';
 
-// New size for 6-across on A4
+// A4 layout constants
 const PHOTO_WIDTH_MM = 33; 
 const PHOTO_HEIGHT_MM = 42.4; 
 const PHOTO_GAP_MM = 2;
@@ -18,16 +18,21 @@ export default function PhotoPreview() {
   const previewHeightPx = PHOTO_HEIGHT_MM * 4;
   const previewGapPx = PHOTO_GAP_MM * 4;
 
+  // Add top margin only if layout is A4 (6 columns)
+  const isA4Layout = COLUMNS === 6;
+  const topMarginPx = isA4Layout ? 20 : 0; // adjust this value (40px ≈ 5mm)
+
   return (
     <div className="bg-gray-50 rounded-xl p-6">
       <h3 className="text-lg font-semibold text-gray-800 mb-4">Preview</h3>
       {uploadedImage ? (
         <div className="bg-white p-4 rounded-lg shadow-inner overflow-auto">
           <div
-            className="grid"
+            className="grid justify-center"
             style={{
               gridTemplateColumns: `repeat(${COLUMNS}, ${previewWidthPx}px)`,
               gap: `${previewGapPx}px`,
+              marginTop: `${topMarginPx}px`, // ✅ top margin only for A4
             }}
           >
             {Array(photoCount)
