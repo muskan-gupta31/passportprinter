@@ -47,23 +47,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Info Section */}
-      <div className="px-6 pb-12">
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-          <div className="flex items-start gap-3 mb-4">
-            <Info className="w-5 h-5 text-indigo-200 flex-shrink-0 mt-0.5" />
-            <div>
-              <h3 className="font-semibold mb-2">Standard Size</h3>
-              <p className="text-sm text-indigo-200">33mm × 42.4mm passport format</p>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-2 text-xs">
-            <span className="bg-white/20 px-3 py-1 rounded-full">6 photos/sheet</span>
-            <span className="bg-white/20 px-3 py-1 rounded-full">A4 paper</span>
-            <span className="bg-white/20 px-3 py-1 rounded-full">High quality</span>
-          </div>
-        </div>
-      </div>
+    
     </div>
   );
 }

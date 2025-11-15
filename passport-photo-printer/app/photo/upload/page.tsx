@@ -96,16 +96,7 @@ export default function PhotoUploadPage() {
               <p className="text-gray-600 text-sm">From gallery</p>
             </button>
 
-            {/* Info Card */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white">
-              <h3 className="font-semibold mb-3">📸 Photo Tips</h3>
-              <ul className="space-y-2 text-sm text-indigo-100">
-                <li>• Good lighting on face</li>
-                <li>• Plain background</li>
-                <li>• Face clearly visible</li>
-                <li>• Neutral expression</li>
-              </ul>
-            </div>
+         
           </div>
         ) : (
           <div className="space-y-4">
