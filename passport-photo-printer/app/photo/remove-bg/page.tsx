@@ -83,7 +83,11 @@ export default function RemoveBackgroundPage() {
                     const bgProgress = 15 + (current / total) * 70;
                     updateProgress(Math.min(bgProgress, 85));
                 },
-                model: 'small',
+                model: 'isnet_fp16',
+
+
+
+
                 output: {
                     format: 'image/png',
                     quality: 0.8,
